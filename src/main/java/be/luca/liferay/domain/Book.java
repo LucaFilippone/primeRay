@@ -9,6 +9,15 @@ public class Book {
 	public Book(){
 		
 	}
+	
+
+	public Book(String title, String author, String isbn, Integer rating) {
+		super();
+		this.title = title;
+		this.author = author;
+		this.isbn = isbn;
+		this.rating = rating;
+	}
 
 	public String getTitle() {
 		return title;

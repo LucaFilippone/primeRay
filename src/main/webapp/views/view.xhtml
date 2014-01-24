@@ -10,6 +10,29 @@
 >
 	<h:head />
 	<h:body>
-		<h3>CDI Bean: #{testBean.hello}</h3>
+		<h3>Books overview</h3>
+		<h:form id="mainForm">
+			<p:messages  autoUpdate="true"/>
+			<p:dataTable value="#{booksOverview.allBooks}" var="book" paginatorAlwaysVisible="false" paginatorPosition="bottom"
+						 id="booksTable" rows="10">
+				<p:column headerText="Title">
+					<h:outputText value="#{book.title}"/>
+				</p:column>
+				
+				<p:column headerText="Author">
+					<h:outputText value="#{book.author}"/>
+				</p:column>
+				
+				<p:column headerText="ISBN">
+					<h:outputText value="#{book.isbn}"/>
+				</p:column>
+				
+				<p:column headerText="Rating">
+					<p:rating value="#{book.rating}"/>
+				</p:column>
+			</p:dataTable>
+			<p:spacer width="0" height="20" />
+			<p:commandButton value="New book" action="editBook.xhtml" />
+		</h:form>
 	</h:body>
 </f:view>

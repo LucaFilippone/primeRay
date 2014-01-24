@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head />
+	<h:body>
+		<style type="text/css">
+		.gridNoBorder tr,.gridNoBorder td {
+			border: none;
+		}
+		</style>
+		<h3>Book Info</h3>
+		<h:form id="mainForm2">
+			<p:messages autoUpdate="true" />
+			<p:panelGrid columns="2" styleClass="gridNoBorder" style="width:100%;">
+				
+				<p:outputLabel for="txtTitle" value="Book title" />
+				<p:inputText id="txtTitle" value="#{editBookBean.book.title}" />
+	
+				<p:outputLabel for="txtAuthor" value="Author" />
+				<p:inputText id="txtAuthor" value="#{editBookBean.book.author}" />
+	
+				<p:outputLabel for="txtIsbn" value="ISBN Number" />
+				<p:inputText id="txtIsbn" value="#{editBookBean.book.isbn}" />
+	
+				<p:outputLabel for="txtRating" value="Rating" />
+				<p:rating id="txtRating" value="#{editBookBean.book.rating}" />
+	
+				<f:facet name="footer">
+					<h:panelGrid columns="2">
+						<p:commandButton value="OK" action="#{editBookBean.saveAndReturn}"/>
+						<p:commandButton value="Cancel" immediate="true" action="view.xhtml"/>
+					</h:panelGrid>
+				</f:facet>
+	
+			</p:panelGrid>
+		</h:form>
+	</h:body>
+</f:view>
